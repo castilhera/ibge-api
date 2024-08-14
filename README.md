@@ -1,5 +1,7 @@
 # IBGE - Localidades
 
-Serviço de Consulta a API de Localidades do IBGE, utilizando Python.
+Serviço de Consulta a APIs do IBGE, utilizando Python.
 
+## Serviços
+### Localidades 
 https://servicodados.ibge.gov.br/api/docs/localidades
