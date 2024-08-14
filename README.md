@@ -1,4 +1,4 @@
-# IBGE - Localidades
+# Serviço de Dados do IBGE
 
 Serviço de Consulta a APIs do IBGE, utilizando Python.
 
