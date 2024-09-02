@@ -1,14 +1,16 @@
+from typing import override
 from ibgeapi.models.state import State
 from ibgeapi.services.location import LocationService
 
 class StateService(LocationService):
 
     def __init__(self) -> None:
-        super().__init__("/estados")
+        super().__init__(State, "/estados")
 
-    def parse(self, response) -> State:
+    @override
+    def parse(self, obj: dict) -> State:
         return State(
-            id=response["id"],
-            name=response["nome"],
-            acronym=response["sigla"]
+            ibge_id=obj["id"],
+            name=obj["nome"],
+            acronym=obj["sigla"]
         )

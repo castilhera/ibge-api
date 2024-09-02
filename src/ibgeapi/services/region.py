@@ -1,14 +1,16 @@
+from typing import override
 from ibgeapi.models.region import Region
 from ibgeapi.services.location import LocationService
 
-class RegionService(LocationService):
+class RegionService(LocationService[Region]):
 
     def __init__(self) -> None:
-        super().__init__("/regioes")
+        super().__init__(Region, "/regioes")
 
-    def parse(self, response) -> Region:
+    @override
+    def parse(self, obj: dict) -> Region:
         return Region(
-            id=response["id"],
-            name=response["nome"],
-            acronym=response["sigla"]
+            ibge_id=obj["id"],
+            name=obj["nome"],
+            acronym=obj["sigla"]
         )
