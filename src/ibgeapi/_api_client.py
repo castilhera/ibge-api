@@ -12,4 +12,13 @@ class _APIClient:
                        params=params,
                        timeout=5)
         response.raise_for_status()
-        return response.json()
+        return response
+
+    def post(self, endpoint:str, params:dict[str,str]=None):
+        """Use a HTTP Client to POST data.
+        """
+        response = post(f"{self.base_url}/{endpoint}",
+                        json=params,
+                        timeout=5)
+        response.raise_for_status()
+        return response
